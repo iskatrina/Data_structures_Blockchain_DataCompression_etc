@@ -1,0 +1,235 @@
+#----------------------------------------
+#Problem1. LRU Cache
+#----------------------------------------
+
+-  For implementing data structure Least Recently Used (LRU) Cashe I designed a class where object is dictinary(hash map) and it has 2 functions which returns and insert item with O(1) time efficiency, since look up in Hash map is constant time O(1).
+
+- Space efficiency in current example with the size of LRU as 5 is constant. With size of LRU Cache growing, I expeft it to be space efficiency = n
+
+
+#----------------------------------------
+#Problem2.File_Recursion
+#----------------------------------------
+
+## Explanation
+
+#- For implementing efficient search function I used recursion. It goes deep into all directories one by one in a top down manner and:
+<br> 1. print out all paths of all searched files
+<br> 2. and then gows into each directory if it exists and recursivally does the same steps 1. and 2. until all is checked
+
+### Time and Space Efficiency:
+
+#### Key answer: Linear Time Complexity and Constant Space efficiency
+
+1. TIme efficiency. Traversal Time: The implemented search function efficiently traverses the directory tree in a top-down manner. It explores each directory and its subdirectories in a depth-first fashion.
+<br> => Linear Time Complexity: The time complexity is generally O(n), where n is the total number of files and directories in the tree. It visits each file and directory once.
+
+
+2. Space efficiency. Memory Usage:  The implemented search functionis memory-efficient as it doesn't load the entire directory tree into memory at once. Instead, it returns a generator object that yields a tuple for each directory it visits. The tuple contains the current directory, a list of its subdirectories, and a list of its files.
+<br> => Constant Space Overhead: The memory used by  implemented search function is proportional to the depth of the directory tree, not the total number of files. The generator ensures that only a small portion of the directory tree is loaded into memory at any given time.
+
+<br> In summary,  implemented search function is generally considered both time and space-efficient. It is well-suited for efficiently processing directory trees of various sizes, and its memory usage is optimized by yielding results incrementally. 
+
+<br> PS. However, the efficiency depends on the underlying file system and the size of the directory tree being traversed.
+
+
+#----------------------------------------
+#Problem3.Huffman_codding
+#----------------------------------------
+## Explanation
+
+<br>  For Encoding text data I used Data Structure Tree and implemented used Prioroty queue with Linked list of Nodes. Also I used dictionary/hash map for storing unique characters of text and its frequency
+
+#----------------------- Time and Space complexity -----------------
+
+<br> Time Complexity:
+<br> #-----------------------
+
+<br> 1.Building the Huffman Tree (build_huffman_tree):
+
+<br> Time Complexity:
+Counting Character Frequencies (Building the Dictionary):
+
+The time complexity for counting the frequency of each character in the input text using a dictionary is O(m), where m is the length of the input text.
+Each character is processed once.
+
+<br> Building the Linked List from Dictionary Entries:
+
+Constructing the linked list from the dictionary entries involves creating a node for each unique character and its frequency.
+The time complexity for this step is O(n), where n is the number of unique characters.
+In the worst case, you may need to insert each node into the linked list.
+<br>  => The overall time complexity so far is O(m + n), where m is the length of the input text and n is the number of unique characters.
+
+
+<br> 2.Building Huffman Codes (build_huffman_codes):
+
+The time complexity is O(n), where n is the number of nodes in the Huffman tree.
+Each node is visited exactly once.
+
+
+<br> 3.Encoding the Text (huffman_encode):
+
+The time complexity of encoding the text is O(m), where m is the length of the input text.
+Each character in the input text is replaced with its Huffman code.
+
+
+
+<br> 4. Decoding the Text (huffman_decode):
+
+The time complexity of decoding the text is O(m), where m is the length of the encoded text.
+We traverse the Huffman tree for each bit in the encoded text.
+*The overall time complexity* is dominated by the building of the Huffman tree, resulting in O(n  + m).
+
+#-----------------------
+<br> Space Complexity:
+<br> #--------------------
+
+<br> 1. Building Huffman Tree:
+
+The space complexity of storing the Huffman tree is O(n), where n is the number of unique characters in the input text.
+This includes the nodes and pointers in the tree structure.
+<br> 2. Huffman Codes:
+
+The space complexity for storing the Huffman codes is O(n), where n is the number of unique characters.
+Each unique character has an associated Huffman code.
+
+<br> 3. Encoded Text:
+
+The space complexity for storing the encoded text is O(m), where m is the length of the input text.
+The encoded text can be longer than the original text in the worst case.
+The overall space complexity is O(n), where n is the number of unique characters, and it is dominated by the space required to store the Huffman tree and codes.
+
+
+
+
+
+#----------------------------------------
+#Problem4. Active_directory
+#----------------------------------------
+## Explanation
+
+<br> 1. For a efficient seurch funcion I used data structure List  in conjunction with Recursion. Each users structure and each group structure represented as a List. Using append method, wrapped as a class function, user can add new users and new groups.
+<br> For a seaurch itself , function  is_user_in_group(user, group) iterates over list of  Groups and checks if the user belongs to one of the Group and returns True if it founds it. Otherwise checks subgroups in the recursive manner one by one in the depth-down manner until it founds the user or returns otherwise None.
+
+
+## Time and Space efficiency 
+
+#### Key answer: Linear Time Complexity and Constant Space efficiency
+
+1. TIme efficiency. Traversal Time: The implemented search function efficiently traverses the Groups tree in a top-down manner. It explores each Group and subgroups  in a depth-first fashion.
+<br> => Linear Time Complexity: The time complexity is generally O(n), where n is the total number of Groups and subgroups in the tree. It visits each Group and subgroup once.
+
+
+2. Space efficiency. Memory Usage:  The implemented search functionis memory-efficient as it doesn't load the entire Group tree into memory at once. Instead, it returns a generator object that yields a tuple for each Group it visits. The tuple contains the current list of Groups, a list of its subGroups.
+<br> => Constant Space Overhead: The memory used by  implemented search function is proportional to the depth of the Group tree, not the total number of Groups. The generator ensures that only a small portion of the Group tree is loaded into memory at any given time.
+
+<br> In summary,  implemented search function is generally considered both time and space-efficient. It is well-suited for efficiently processing Group's trees of various sizes, and its memory usage is optimized by yielding results incrementally. 
+
+
+
+
+
+#----------------------------------------
+#Problem5. Blockchain
+#----------------------------------------
+
+## Explanation:
+Im implemented Blockchain using linked list structure for Blockchain itself, and to store data of transactions i implemented as a distionary/hash map. 
+
+
+## Time and Space commplexity:
+
+#-------------------------
+<br> *Time Complexity*:
+<br> #-------------------------
+
+<br> Adding a New Block (Appending to the Linked List):
+
+Time complexity: O(1)
+Appending a new block to the end of a linked list is a constant time operation.
+
+<br> Traversing the Blockchain:
+
+Time complexity: O(n)
+If one needs to traverse the entire blockchain (all blocks), the time complexity is linear, where n is the number of blocks in the chain.
+
+<br> Validating the Blockchain:
+
+Time complexity: O(n)
+Validating the entire blockchain involves traversing all blocks and verifying the integrity of each block.
+
+<br> Searching for a Specific Block:
+
+Time complexity: O(n) in a worst case
+
+Searching for a block in the linked list involves traversing the list until the target block is found.
+
+#----------------------------
+<br> *Space Complexity:*
+<br> #----------------------------
+
+<br> Storing the Blockchain (Linked List Nodes):
+
+<br>Space complexity: O(n)
+The space required to store the blockchain is proportional to the number of blocks. Each block corresponds to a node in the linked list.
+
+<br>Additional Metadata (Block Information, Pointers, etc.):
+
+The space complexity may include additional metadata associated with each block - timestamps, transaction data, and pointers to the next block.
+The overall space complexity may depend on the size of this metadata. im my test examples its rather could be not taken in count.
+
+
+
+
+
+
+
+
+#----------------------------------------
+#Problem6.Union_and_Intersection_of_Linked_lists.py
+#----------------------------------------
+
+I used data structures - Linked lists and dictionary.
+
+
+## Time and Space complexity
+
+----------------------
+<br> UNION:
+----------------------
+<br> Time Complexity:
+
+<br> finding the union involves traversing both linked lists and adding unique elements to a new linked list or set.
+The time complexity for union is O(m + n), where m and n are the lengths of the two linked lists.
+
+<br> Space Complexity:
+
+<br> The space complexity is O(m + n) to store the union.
+If modifying one of the existing linked lists, the space complexity might be O(min(m, n)) if you are using additional data structures to keep track of elements.
+Intersection of Two Linked Lists:
+Time Complexity:
+
+---------------------
+<br> INTERSECTION:
+---------------------
+<br> Time Complexity:
+
+<br> In my solution I traverse both linked lists and use dictionary Data sructur eto store elements/keys of first linked lList and then look up elemnets of second Linked list in distionary (hash table).
+Thus, finding the intersection involves traversing both linked lists and identifying common elements.
+The time complexity for intersection is O(m + n)), where m and n are the lengths of the two linked lists.
+
+<br>Space Complexity:
+
+<br>Building the Dictionary:
+
+<br>Space complexity: O(m), where m is the length of the first linked list.
+Each node from the first linked list is stored in the dictionary.
+
+<br>Result Intersection- Linked List:
+
+<br>The space complexity for the result linked list is O(min(m, n)) in the worst case.
+The overall space complexity is O(m), dominated by the space required to store the nodes from the first linked list in the dictionary.
+
+<br>My approach is efficient in terms of time complexity, and using a dictionary for lookups helps achieve O(m + n) time complexity. The space complexity is also reasonable.
+
+
