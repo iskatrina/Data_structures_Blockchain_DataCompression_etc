@@ -118,6 +118,11 @@ def find_files(suffix, path):
     path = path
     suffix = suffix
     
+    # check if path exists
+    if not (os.path.exists(path) and os.path.isdir(path)):
+        return print("Directory does not exist")
+
+
     
     #recurtion
     for File in os.listdir(path):
@@ -144,3 +149,7 @@ find_files(suffix = '', path= '/Users/katerynaisaieva/Desktop/Nanodegree_Project
 
 find_files(suffix = 'c', path= '/Users/katerynaisaieva/Desktop/Nanodegree_Projects/Algorytms_Datastructures_Nanodegree/Project2_datastructures/Problem2_File_Recursion/testdir/subdir2')
 
+# Test case 4 (sending invalid diretory path):
+
+path1 = '/Users/katerynaisaieva/Desktop/Nanodegree_Projects/Algorytms_Datastructures_Nanodegree/Project2_datastructures/Problem2_File_Recursion/testdir/subdir2'
+print(find_files('.h', path1 + '/abc'))
