@@ -71,22 +71,24 @@ def is_user_in_group(user, group):
     group = group
     user = user
     outcome = False
-    #get list of groups in a group
-    list_of_groups = group.get_groups()
-    #access each group and get list of users in each group
-    #check if there is user in list of users
-    #if now then check list of available groups within this group and so on
     
-    for one in list_of_groups:
-        users = one.get_users()
-        if user in users:
-            return print("True")
-        else:
-            #otherwise check subgroups of this one group
-             is_user_in_group(user,one)
+    if group is not None:
+        #get list of groups in a group
+        list_of_groups = group.get_groups()
+        #access each group and get list of users in each group
+        #check if there is user in list of users
+        #if now then check list of available groups within this group and so on
+
+        for one in list_of_groups:
+            users = one.get_users()
+            if user in users:
+                return print("True")
+            else:
+                #otherwise check subgroups of this one group
+                 is_user_in_group(user,one)
     
    
-    return outcome
+    return outco
 
 
 ## Test Case 1
@@ -156,3 +158,18 @@ teachers.add_user('mavrikii')
 
 is_user_in_group(user="red", group = objects)
 
+## Test case4(corener case):
+
+is_user_in_group(None,parent)
+
+
+## Test case5(corner case):
+
+
+is_user_in_group('',parent)
+
+
+## Test case6 (corner case):
+
+
+is_user_in_group(user = sub_child_user,group = None)
