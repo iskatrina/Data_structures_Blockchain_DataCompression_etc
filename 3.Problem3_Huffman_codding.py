@@ -375,3 +375,85 @@ I keep on floating away
 
 
 
+## Test case4:
+
+if __name__ == "__main__":
+    codes = {}
+
+    my_test4 = 'aaaaaaaaaaaaaa'
+
+#     print ("The size of the data is: {}\n".format(sys.getsizeof(my_test4)))
+#     print ("The content of the data is: {}\n".format(my_test2))
+
+    encoded_data, tree = huffman_encoding(my_test4)
+
+#     print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+#     print ("The content of the encoded data is: {}\n".format(encoded_data))
+    
+
+    decoded_data = huffman_decoding(encoded_data, tree=tree)
+
+#     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+#     print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+
+print(' encoded_data=', encoded_data)
+print(' decoded_data=', decoded_data)
+
+
+
+#-------
+
+## Test case5:
+
+if __name__ == "__main__":
+    codes = {}
+
+    my_test5 = 'a'
+
+#     print ("The size of the data is: {}\n".format(sys.getsizeof(my_test4)))
+#     print ("The content of the data is: {}\n".format(my_test2))
+
+    encoded_data, tree = huffman_encoding(my_test5)
+
+#     print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+#     print ("The content of the encoded data is: {}\n".format(encoded_data))
+    
+
+    decoded_data = huffman_decoding(encoded_data, tree=tree)
+
+#     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+#     print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+
+print(' encoded_data=', encoded_data)
+print(' decoded_data=', decoded_data)
+
+
+#-------------
+
+## Test case6:
+
+if __name__ == "__main__":
+    codes = {}
+
+    my_test6 = ''
+
+#     print ("The size of the data is: {}\n".format(sys.getsizeof(my_test4)))
+#     print ("The content of the data is: {}\n".format(my_test2))
+
+    encoded_data, tree = huffman_encoding(my_test6)
+
+#     print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+#     print ("The content of the encoded data is: {}\n".format(encoded_data))
+    
+
+    decoded_data = huffman_decoding(encoded_data, tree=tree)
+
+#     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+#     print ("The content of the decoded data is: {}\n".format(decoded_data))
+
+
+print(' encoded_data=', encoded_data)
+print(' decoded_data=', decoded_data)
+
