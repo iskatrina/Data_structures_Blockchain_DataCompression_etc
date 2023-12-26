@@ -40,9 +40,11 @@ hash_dictionary(dict_data = sha_data)
 
 ## Blockchain implementation
 
+
+
 class Block:
         
-    def __init__(self,  data, previous_hash = None):
+    def __init__(self,  data, previous_hash=None):
         self.timestamp = time.time()
         self.data = data
         self.previous_hash = previous_hash
@@ -58,7 +60,7 @@ class Block:
         return sha.hexdigest()
     
     def __str__(self):
-        return str(self.data)
+        return f"Data: {self.data}, Previous Hash: {self.previous_hash}, Hash: {self.hash}"
 
     
     
@@ -68,19 +70,25 @@ class Blockchain():
     def __init__(self):
         self.head = None
         self.tail = None
+        self.previous_hash = None  # Initialize previous_hash
+        
 
     def append(self, data):
         """ Append a value as a head, which will be a tail as well """    
+       
         if self.head is None:
-            self.head = Block(data)
+            self.head = Block(data, self.previous_hash)
             self.tail = self.head
+            previous_hash = self.head.hash
 
         else:
             """ Append a value to the tail """   
-            self.tail.next = Block(data)
+            self.tail.next = Block(data, self.tail.hash)
             self.tail = self.tail.next
         
         return self.head
+    
+    
     
     
 #------------------Visualization ----------------------
@@ -154,15 +162,19 @@ Transactions.append(Denis )
 Transactions.append(Natalia)
 Transactions.append(Vladimir)
 
-
 current_block = Transactions.head
+i = 0
 while current_block != None:
-    print(current_block.data)
+    print('Block ',i)
+    i +=1
+    print('Timestamp:',current_block.timestamp)
+    print('Previous hash:',current_block.previous_hash)
+    print('Current hash:',current_block.hash)
+    print('Block data:',current_block.data)
+    print('---------------------------')
+   
     current_block = current_block.next
     
-# Visualizing Blockchain    
-visualize_linked_list_vertical(Transactions.head)
-
 #----------------------------
 ## Blockchain Test Case 2 (long entry):
 
@@ -255,8 +267,16 @@ Transactions.append(Vladimir)
 
 
 current_block = Transactions.head
+i = 0
 while current_block != None:
-    print(current_block.data)
+    print('Block ',i)
+    i +=1
+    print('Timestamp:',current_block.timestamp)
+    print('Previous hash:',current_block.previous_hash)
+    print('Current hash:',current_block.hash)
+    print('Block data:',current_block.data)
+    print('---------------------------')
+   
     current_block = current_block.next
     
     
@@ -266,8 +286,16 @@ while current_block != None:
 Transactions = Blockchain()
 #data: [currency_name,amount,'sent'/'received', reciever/sender name]
 current_block = Transactions.head
+i = 0
 while current_block != None:
-    print(current_block.data)
+    print('Block ',i)
+    i +=1
+    print('Timestamp:',current_block.timestamp)
+    print('Previous hash:',current_block.previous_hash)
+    print('Current hash:',current_block.hash)
+    print('Block data:',current_block.data)
+    print('---------------------------')
+   
     current_block = current_block.next
-    
+       
 # returns nothing , since its empty
